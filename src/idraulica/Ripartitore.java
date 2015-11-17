@@ -2,9 +2,17 @@ package idraulica;
 
 public class Ripartitore extends Split { //could extends Elemento{
 	
+	double proportions[];
+	
 	public Ripartitore(String nome, int num) {
 		super(nome);
 		super.outputs = new Elemento[num];
+		this.proportions = new double[num];
+		
+		double p = (double)1/num;
+		for(int i=0; i<num; i++) {
+			this.proportions[i] = p;
+		}
 	}
 	
 	public int getNumeroUscite() {
@@ -12,7 +20,13 @@ public class Ripartitore extends Split { //could extends Elemento{
 	}
 	
 	public void setProporzioni(double[] proporzioni) {
-		// TODO: completare
+		int i;
+		for(i=0; i<proportions.length && i<proporzioni.length; i++)
+			proportions[i] = proporzioni[i];
+		
+		if(i<proportions.length)
+			for(; i<proportions.length; i++)
+				proportions[i] = 0;
 	}
     
 	public void connetti(Elemento elem, int uscita) {
@@ -25,6 +39,21 @@ public class Ripartitore extends Split { //could extends Elemento{
         	super.connetti(elem);
         }
         super.outputs[uscita] = elem;
+	}
+	
+	public void simula(String indentation, double portata) {
+		System.out.println(indentation+" | ");
+		System.out.println(indentation+" element: "+name+" - inflow: "+portata+" M^3/s ");
+		
+		indentation += "---";
+		int i=0;
+		for(Elemento el : outputs) {
+			if(el != null) {
+				System.out.println(indentation+" Outflow"+i+": "+portata*proportions[i]+" M^3/s");
+				super.outputs[i].simula(indentation+"---", portata*proportions[i]);
+			}
+			i++;
+		}		
 	}
 	
 }

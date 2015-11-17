@@ -4,7 +4,6 @@ public class Scarico extends Elemento {
 
 	public Scarico(String nome) {
 		super(nome);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -12,6 +11,13 @@ public class Scarico extends Elemento {
 	 */
 	public void connetti(Elemento elem) {
 		System.err.println("It is not possible to connect a Sink to something.");
+	}
+
+	public void simula(String indentation, double portata) {
+		System.out.println(indentation+" | ");
+		System.out.println(indentation+" element: "+name+" - inflow: "+portata+" M^3/s");
+		System.out.println(indentation+" End of the Flow - ");
+		System.out.println(indentation);
 	}
 
 }

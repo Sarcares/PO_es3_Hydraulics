@@ -2,12 +2,23 @@ package idraulica;
 
 public class Sorgente extends Elemento {
 
+	private double portata;
+
 	public Sorgente(String nome) {
 		super(nome);
-		// TODO Auto-generated constructor stub
+	}
+	
+	public Sorgente(String nome, double portata) {
+		super(nome);
+		this.portata = portata;
 	}
 
 	public void setPortata(double portata){
-		// TODO: completare
+		this.portata = portata;
+	}
+	
+	public void simula(String indentation){
+		System.out.println("\nSource: "+super.name+" - Flow: "+this.portata+" M^3/s");
+		super.output.simula("---", this.portata);
 	}
 }

@@ -2,8 +2,8 @@ package idraulica;
 
 public class Elemento {
 
-	private String name;
-	private Elemento output;
+	protected String name;
+	protected Elemento output;
 	
 	public Elemento(String nome) {
 		this.name = nome;
@@ -27,5 +27,10 @@ public class Elemento {
 	 */
 	public Elemento getUscita() {
 		return this.output;
+	}
+	
+	public void simula(String indentation, double portata) {
+		// this method should never be called directly.
+		// it's like an abstract class, you have to reimplement this method in each subclass.
 	}
 }

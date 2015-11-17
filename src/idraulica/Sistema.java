@@ -7,7 +7,7 @@ public class Sistema {
 
 	private List<Elemento> elementi = new LinkedList<Elemento>();
 	
-	public void aggiungiElemento(Elemento elem){
+	public void aggiungiElemento(Elemento elem) {
 		elementi.add(elem);
 	}
 	
@@ -15,10 +15,6 @@ public class Sistema {
 		Elemento toRet[] = new Elemento[elementi.size()];
 		elementi.toArray(toRet);
 		return toRet;
-	}
-	
-	public void simula(){
-		// TODO: completare
 	}
 	
 	/**
@@ -30,5 +26,14 @@ public class Sistema {
 			toRet += "\t"+el.getNome()+"\n";
 		}
 		return toRet;
+	}
+
+	public void simula(){
+		for(Elemento el : elementi) {
+			if(el instanceof Sorgente) {
+				Sorgente s = (Sorgente) el;
+				s.simula(null);
+			}
+		}
 	}
 }

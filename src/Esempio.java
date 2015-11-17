@@ -16,16 +16,19 @@ public class Esempio {
 		Elemento el1 = new Elemento("elemento1");		
 		Elemento el2 = new Elemento("elemento2");
 		
-		Elemento src = new Sorgente("Src");	
-		Elemento tap = new Rubinetto("Tap");		
+		Sorgente src = new Sorgente("Src");
+		src.setPortata(100);
+		Elemento tap = new Rubinetto("Tap", true);		
 		Elemento sink = new Scarico("Snk");
 		
-		Elemento source = new Sorgente("Source");
+		Sorgente source = new Sorgente("Source");
+		source.setPortata(80);
 		Split t = new Split("T");
 		Elemento sink1 = new Scarico("Sink 1");
 		Elemento sink2 = new Scarico("Sink 2");	
 		
-		Elemento source0 = new Sorgente("Source 0");
+		Sorgente source0 = new Sorgente("Source 0");
+		source0.setPortata(150);
 		Ripartitore par = new Ripartitore("Par", 3);
         
         // aggiunge gli elementi al sistema
@@ -56,6 +59,8 @@ public class Esempio {
 		par.connetti(sink, 0);
 		par.connetti(sink1, 1);
 		par.connetti(sink2, 2);
+		double prop[] = {0.33, 0.40, 0.25};
+		par.setProporzioni( prop );
 		
 		// controllo connessione
 		System.out.println("Connessioni nel sistema: ");
@@ -74,12 +79,11 @@ public class Esempio {
 		}
 		System.out.println();
         
-        // ottiene gli elementi
-        Elemento[] elementi = s.getElementi();
-        
+        // Stampo gli elementi del sistema       
         System.out.println("Il sistema contiene: ");
         System.out.println(s.toString());
         
+        s.simula();
     }
 
 }

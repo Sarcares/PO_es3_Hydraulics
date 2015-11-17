@@ -59,7 +59,7 @@ public class Esempio {
 		par.connetti(sink, 0);
 		par.connetti(sink1, 1);
 		par.connetti(sink2, 2);
-		double prop[] = {0.33, 0.40, 0.25};
+		double prop[] = {33, 40, 25};
 		par.setProporzioni( prop );
 		
 		// controllo connessione

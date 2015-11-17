@@ -46,16 +46,16 @@ public class Split extends Elemento {
     
 	public void simula(String indentation, double portata) {
 		System.out.println(indentation+" | ");
-		System.out.println(indentation+" element: "+name+" - inflow: "+portata+" M^3/s ");
+		System.out.println(indentation+" element: "+name+" - inflow: "+portata+" cubic meters per second ");
 		
 		indentation += "---";
 		portata = portata*0.5;
 		
-		System.out.println(indentation+" Outflow1: "+portata+" M^3/s");
+		System.out.println(indentation+" Outflow1: "+portata+" cubic meters per second");
 		if(this.outputs[0] != null )
 			this.outputs[0].simula(indentation+"---", portata);
 		
-		System.out.println(indentation+" Outflow2: "+portata+" M^3/s");
+		System.out.println(indentation+" Outflow2: "+portata+" cubic meters per second");
 		if(this.outputs[1] != null )
 			this.outputs[1].simula(indentation+"---", portata);		
 	}

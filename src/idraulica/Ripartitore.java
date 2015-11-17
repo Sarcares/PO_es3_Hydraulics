@@ -9,7 +9,7 @@ public class Ripartitore extends Split { //could extends Elemento{
 		super.outputs = new Elemento[num];
 		this.proportions = new double[num];
 		
-		double p = (double)1/num;
+		double p = (double)1/num*100;
 		for(int i=0; i<num; i++) {
 			this.proportions[i] = p;
 		}
@@ -43,14 +43,14 @@ public class Ripartitore extends Split { //could extends Elemento{
 	
 	public void simula(String indentation, double portata) {
 		System.out.println(indentation+" | ");
-		System.out.println(indentation+" element: "+name+" - inflow: "+portata+" M^3/s ");
+		System.out.println(indentation+" element: "+name+" - inflow: "+portata+" cubic meters per second ");
 		
 		indentation += "---";
 		int i=0;
 		for(Elemento el : outputs) {
 			if(el != null) {
-				System.out.println(indentation+" Outflow"+i+": "+portata*proportions[i]+" M^3/s");
-				super.outputs[i].simula(indentation+"---", portata*proportions[i]);
+				System.out.println(indentation+" Outflow"+i+": "+portata*proportions[i]/100+" cubic meters per second");
+				super.outputs[i].simula(indentation+"---", portata*proportions[i]/100);
 			}
 			i++;
 		}		

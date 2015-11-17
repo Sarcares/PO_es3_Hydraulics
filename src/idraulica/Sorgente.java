@@ -18,7 +18,7 @@ public class Sorgente extends Elemento {
 	}
 	
 	public void simula(String indentation){
-		System.out.println("\nSource: "+super.name+" - Flow: "+this.portata+" M^3/s");
+		System.out.println("\nSource: "+super.name+" - Flow: "+this.portata+" cubic meters per second");
 		super.output.simula("---", this.portata);
 	}
 }

@@ -15,7 +15,7 @@ public class Scarico extends Elemento {
 
 	public void simula(String indentation, double portata) {
 		System.out.println(indentation+" | ");
-		System.out.println(indentation+" element: "+name+" - inflow: "+portata+" M^3/s");
+		System.out.println(indentation+" element: "+name+" - inflow: "+portata+" cubic meters per second");
 		System.out.println(indentation+" End of the Flow - ");
 		System.out.println(indentation);
 	}

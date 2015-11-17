@@ -31,13 +31,13 @@ public class Rubinetto extends Elemento {
 		System.out.println(indentation+" | ");
 		if(open) {
 			System.out.println(indentation+" element: "+name+
-				" - inflow: "+portata+" M^3/s - Outflow: "+portata+" M^3/s");
+				" - inflow: "+portata+" cubic meters per second - Outflow: "+portata+" cubic meters per second");
 			indentation += "---";
 			super.output.simula(indentation, portata);
 		}
 		else {
 			System.out.println(indentation+" element: "+name+
-				" - inflow: "+portata+" M^3/s - Outflow: 0 M^3/s");
+				" - inflow: "+portata+" cubic meters per second - Outflow: 0 cubic meters per second");
 			System.out.println(indentation+" End of the Flow - ");
 			System.out.println(indentation);
 		}
